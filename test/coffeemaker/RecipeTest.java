@@ -1,6 +1,7 @@
 package coffeemaker;
 
 import coffeemaker.exceptions.InvalidValueException;
+import coffeemaker.exceptions.RecipeException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
