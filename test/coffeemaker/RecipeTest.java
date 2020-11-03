@@ -26,4 +26,23 @@ public class RecipeTest {
         assertThrows(InvalidValueException.class, () ->new Recipe("Coffee",50,-1,0,1,0));
     }
 
+    @Test
+    public void testCreateRecipeWithZeroAmmountOfIngredients() throws InvalidValueException {
+        assertThrows(InvalidValueException.class, () ->new Recipe("Coffee",50,0,0,0,0));
+    }
+
+    @Test
+    public void testCreateRecipeWithPriceEqualsToZero() throws InvalidValueException {
+        assertThrows(InvalidValueException.class, () ->new Recipe("Coffee",0,1,1,1,1));
+    }
+
+    @Test
+    public void testCreateRecipeWithNegativePrice() throws InvalidValueException {
+        assertThrows(InvalidValueException.class, () ->new Recipe("Coffee",-1,1,1,1,1));
+    }
+
+    @Test
+    public void testCreateRecipeWithEmptyName() throws InvalidValueException {
+        assertThrows(InvalidValueException.class, () ->new Recipe("",50,1,1,1,1));
+    }
 }
