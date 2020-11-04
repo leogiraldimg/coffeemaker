@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Recipe.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CoffeeMaker$coffeemaker_in_CoffeeMaker.exec</a> &gt; <a href="index.source.html" class="el_package">coffeemaker</a> &gt; <span class="el_source">Recipe.java</span></div><h1>Recipe.java</h1><pre class="source lang-java linenums">package coffeemaker;
+
+import coffeemaker.exceptions.InvalidValueException;
+
+/**
+ * @author   Sarah Heckman
+ */
+public class Recipe {
+    private String name;
+    private int price;
+    private int amtCoffee;
+    private int amtMilk;
+    private int amtSugar;
+    private int amtChocolate;
+    
+    
+    
+    public Recipe(String name, int price, int amtCoffee, int amtMilk,
+			int amtSugar, int amtChocolate) throws InvalidValueException {
+<span class="fc" id="L20">		super();</span>
+<span class="fc" id="L21">		setName(name);</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">		if (amtCoffee+amtMilk+amtSugar+amtChocolate==0)</span>
+<span class="fc" id="L23">			throw new InvalidValueException(&quot;Zero ingredients&quot;);</span>
+<span class="fc" id="L24">		setPrice(price);</span>
+<span class="fc" id="L25">		setAmtCoffee(amtCoffee);</span>
+<span class="fc" id="L26">		setAmtMilk(amtMilk);</span>
+<span class="fc" id="L27">		setAmtSugar(amtSugar);</span>
+<span class="fc" id="L28">		setAmtChocolate(amtChocolate);</span>
+<span class="fc" id="L29">	}</span>
+
+    
+    /**
+	 * @return   Returns the amtChocolate.
+	 */
+    public int getAmtChocolate() {
+<span class="fc" id="L36">		return amtChocolate;</span>
+	}
+    /**
+	 * @param amtChocolate   The amtChocolate to set.
+	 */
+    public void setAmtChocolate(int amtChocolate) throws InvalidValueException {
+<span class="fc bfc" id="L42" title="All 2 branches covered.">		if (amtChocolate &gt;= 0) {</span>
+<span class="fc" id="L43">			this.amtChocolate = amtChocolate;</span>
+		} else {
+<span class="fc" id="L45">			throw new InvalidValueException(&quot;Units of chocolate must be a positive integer&quot;);</span>
+		}
+<span class="fc" id="L47">	}</span>
+    /**
+	 * @return   Returns the amtCoffee.
+	 */
+    public int getAmtCoffee() {
+<span class="fc" id="L52">		return amtCoffee;</span>
+	}
+    /**
+	 * @param amtCoffee   The amtCoffee to set.
+	 */
+    public void setAmtCoffee(int amtCoffee) throws InvalidValueException {
+<span class="fc bfc" id="L58" title="All 2 branches covered.">    	if (amtCoffee &gt;= 0) {</span>
+<span class="fc" id="L59">			this.amtCoffee = amtCoffee;</span>
+		} else {
+<span class="fc" id="L61">			throw new InvalidValueException(&quot;Units of coffee must be a positive integer&quot;);</span>
+		}
+<span class="fc" id="L63">	}</span>
+    /**
+	 * @return   Returns the amtMilk.
+	 */
+    public int getAmtMilk() {
+<span class="fc" id="L68">		return amtMilk;</span>
+	}
+    /**
+	 * @param amtMilk   The amtMilk to set.
+	 */
+    public void setAmtMilk(int amtMilk) throws InvalidValueException {
+<span class="fc bfc" id="L74" title="All 2 branches covered.">		if (amtMilk &gt;= 0) {</span>
+<span class="fc" id="L75">			this.amtMilk = amtMilk;</span>
+		} else {
+<span class="fc" id="L77">			throw new InvalidValueException(&quot;Units of milk must be a positive integer&quot;);</span>
+		}
+<span class="fc" id="L79">	}</span>
+    /**
+	 * @return   Returns the amtSugar.
+	 */
+    public int getAmtSugar() {
+<span class="fc" id="L84">		return amtSugar;</span>
+	}
+    /**
+	 * @param amtSugar   The amtSugar to set.
+	 */
+    public void setAmtSugar(int amtSugar) throws InvalidValueException {
+<span class="fc bfc" id="L90" title="All 2 branches covered.">		if (amtSugar &gt;= 0) {</span>
+<span class="fc" id="L91">			this.amtSugar = amtSugar;</span>
+		} else {
+<span class="fc" id="L93">			throw new InvalidValueException(&quot;Units of sugar must be a positive integer&quot;);</span>
+		}
+<span class="fc" id="L95">	}</span>
+    /**
+	 * @return   Returns the name.
+	 */
+    public String getName() {
+<span class="fc" id="L100">		return name;</span>
+	}
+    /**
+	 * @param name   The name to set.
+     * @throws InvalidValueException
+	 */
+    public void setName(String name) throws InvalidValueException {
+<span class="fc bfc" id="L107" title="All 4 branches covered.">    	if(name != null &amp;&amp; !name.equals(&quot;&quot;)) {</span>
+<span class="fc" id="L108">    		this.name = name;</span>
+    	}
+    	else
+<span class="fc" id="L111">    		throw new InvalidValueException(&quot;Invalid name&quot;);</span>
+<span class="fc" id="L112">	}</span>
+    /**
+	 * @return   Returns the price.
+	 */
+    public int getPrice() {
+<span class="fc" id="L117">		return price;</span>
+	}
+    /**
+	 * @param price   The price to set.
+	 */
+    public void setPrice(int price) throws InvalidValueException {
+<span class="fc bfc" id="L123" title="All 2 branches covered.">		if (price &gt; 0) {</span>
+<span class="fc" id="L124">			this.price = price;</span>
+		} else {
+<span class="fc" id="L126">			throw new InvalidValueException(&quot;Price must be a positive integer&quot;);</span>
+		}
+<span class="fc" id="L128">	} </span>
+    
+    
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

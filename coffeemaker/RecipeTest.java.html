@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RecipeTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CoffeeMaker$coffeemaker_in_CoffeeMaker.exec</a> &gt; <a href="index.source.html" class="el_package">coffeemaker</a> &gt; <span class="el_source">RecipeTest.java</span></div><h1>RecipeTest.java</h1><pre class="source lang-java linenums">package coffeemaker;
+
+import coffeemaker.exceptions.InvalidValueException;
+import coffeemaker.exceptions.RecipeException;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+<span class="fc" id="L11">public class RecipeTest {</span>
+
+    private Recipe r3;
+
+    @BeforeEach
+    public  void setUp() throws Exception {
+<span class="fc" id="L17">        r3 = new Recipe(&quot;Latte&quot;,75,3,1,1,0);</span>
+<span class="fc" id="L18">    }</span>
+
+    @Test
+    public void testCreateValidRecipe() throws InvalidValueException {
+<span class="fc" id="L22">        Recipe recipe = new Recipe(&quot;Coffee&quot;,50,4,0,1,0);</span>
+<span class="fc" id="L23">    }</span>
+
+    @Test
+    public void testCreateInvalidRecipeAmtCoffee() throws InvalidValueException {
+<span class="pc" id="L27">        assertThrows(InvalidValueException.class, () -&gt;new Recipe(&quot;Coffee&quot;,50,-1,0,1,0));</span>
+<span class="fc" id="L28">    }</span>
+
+    @Test
+    public void testCreateRecipeWithZeroAmmountOfIngredients() throws InvalidValueException {
+<span class="pc" id="L32">        assertThrows(InvalidValueException.class, () -&gt;new Recipe(&quot;Coffee&quot;,50,0,0,0,0));</span>
+<span class="fc" id="L33">    }</span>
+
+    @Test
+    public void testCreateRecipeWithPriceEqualsToZero() throws InvalidValueException {
+<span class="pc" id="L37">        assertThrows(InvalidValueException.class, () -&gt;new Recipe(&quot;Coffee&quot;,0,1,1,1,1));</span>
+<span class="fc" id="L38">    }</span>
+
+    @Test
+    public void testCreateRecipeWithNegativePrice() throws InvalidValueException {
+<span class="pc" id="L42">        assertThrows(InvalidValueException.class, () -&gt;new Recipe(&quot;Coffee&quot;,-1,1,1,1,1));</span>
+<span class="fc" id="L43">    }</span>
+
+    @Test
+    public void testCreateRecipeWithEmptyName() throws InvalidValueException {
+<span class="pc" id="L47">        assertThrows(InvalidValueException.class, () -&gt;new Recipe(&quot;&quot;,50,1,1,1,1));</span>
+<span class="fc" id="L48">    }</span>
+
+    @Test
+    public void testCreateRecipeWithNullName() throws InvalidValueException {
+<span class="pc" id="L52">        assertThrows(InvalidValueException.class, () -&gt;new Recipe(null,50,1,1,1,1));</span>
+<span class="fc" id="L53">    }</span>
+
+    @Test
+    public void testCreateRecipeWithNegativeChocolateAmount() throws InvalidValueException {
+<span class="pc" id="L57">        assertThrows(InvalidValueException.class, () -&gt;new Recipe(&quot;Coffee&quot;,50,1,1,1,-1));</span>
+<span class="fc" id="L58">    }</span>
+
+    @Test
+    public void testCreateRecipeWithNegativeMilkAmount() throws InvalidValueException {
+<span class="pc" id="L62">        assertThrows(InvalidValueException.class, () -&gt;new Recipe(&quot;Coffee&quot;,50,1,-1,1,1));</span>
+<span class="fc" id="L63">    }</span>
+
+    @Test
+    public void testCreateRecipeWithNegativeSugarAmount() throws InvalidValueException {
+<span class="pc" id="L67">        assertThrows(InvalidValueException.class, () -&gt;new Recipe(&quot;Coffee&quot;,50,1,1,-1,1));</span>
+<span class="fc" id="L68">    }</span>
+
+    @Test
+    public void testCreateRecipeWithNegativeCoffeeAmount() throws InvalidValueException {
+<span class="pc" id="L72">        assertThrows(InvalidValueException.class, () -&gt; new Recipe(&quot;Coffee&quot;, 50, -1, 1, 1, 1));</span>
+<span class="fc" id="L73">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
